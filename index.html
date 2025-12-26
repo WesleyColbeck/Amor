@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Presente Especial</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#121212;
+    color:#fff;
+}
+
+/* TELAS */
+.screen{
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.screen.active{
+    display:flex;
+}
+
+/* CARD */
+.card{
+    background:#181818;
+    border-radius:20px;
+    padding:30px;
+    max-width:420px;
+    width:100%;
+    text-align:center;
+}
+
+h1{
+    font-size:1.8rem;
+    margin-bottom:15px;
+}
+
+p{
+    opacity:.85;
+    margin-bottom:25px;
+}
+
+.green{
+    color:#1db954;
+}
+
+.btn{
+    background:#1db954;
+    color:#000;
+    border:none;
+    padding:14px 30px;
+    border-radius:30px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:1rem;
+}
+
+/* CONTEÚDO */
+.content{
+    max-width:480px;
+    margin:auto;
+    width:100%;
+}
+
+.block{
+    background:#181818;
+    border-radius:20px;
+    margin-bottom:20px;
+    overflow:hidden;
+}
+
+.block img{
+    width:100%;
+    display:block;
+}
+
+.block .text{
+    padding:20px;
+}
+
+/* CONTADOR */
+.counter{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    text-align:center;
+}
+
+.counter div{
+    background:#202020;
+    padding:15px;
+    border-radius:12px;
+}
+
+.counter strong{
+    font-size:1.5rem;
+    display:block;
+}
+
+/* BOTÃO BRANCO */
+.btn-white{
+    background:#fff;
+    color:#000;
+    border:none;
+    padding:12px 25px;
+    border-radius:25px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🟢 TELA 1 -->
+<div id="screen-start" class="screen active">
+    <div class="card">
+        <h1>Edu separou um <span class="green">presente especial</span>!</h1>
+        <p>Um momento único feito com carinho para celebrar a jornada de vocês</p>
+        <button class="btn" onclick="goTo('screen-story')">Ver Presente</button>
+    </div>
+</div>
+
+<!-- 🔴 TELA 2 -->
+<div id="screen-story" class="screen">
+    <div class="content">
+
+        <!-- PLAYER -->
+        <div class="block">
+            <img src="SUA_FOTO_1.jpg">
+            <div class="text">
+                <h3>Sonha Comigo</h3>
+                <p>Zé Neto e Cristiano</p>
+            </div>
+        </div>
+
+        <!-- SOBRE -->
+        <div class="block">
+            <img src="SUA_FOTO_2.jpg">
+            <div class="text">
+                <h3>Edu e Ana</h3>
+                <p>Juntos desde 2021</p>
+
+                <div class="counter">
+                    <div><strong>4</strong>Anos</div>
+                    <div><strong>9</strong>Meses</div>
+                    <div><strong>15</strong>Dias</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENSAGEM -->
+        <div class="block" style="background:#b71c1c">
+            <div class="text">
+                <h3>Mensagem especial</h3>
+                <p>
+                    Você é o amor da minha vida e a pessoa que me faz querer ser melhor a cada novo dia ❤️
+                </p>
+                <button class="btn-white">Mostrar Mensagem</button>
+            </div>
+        </div>
+
+        <!-- WRAPPED -->
+        <div class="block">
+            <div class="text" style="text-align:center">
+                <h2>Seu Relacionamento Wrapped</h2>
+                <p>Explore o tempo de vocês</p>
+                <br>
+                <button class="btn" onclick="goTo('screen-wrapped')">Ver Wrapped</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 🟣 TELA 3 -->
+<div id="screen-wrapped" class="screen">
+    <div class="card">
+        <h1><span class="green">Wrapped</span> de Vocês 💚</h1>
+        <p>Aqui vai entrar o conteúdo do Wrapped<br>(vamos montar com as fotos que você mandar)</p>
+        <button class="btn" onclick="goTo('screen-story')">Voltar</button>
+    </div>
+</div>
+
+<script>
+function goTo(id){
+    document.querySelectorAll('.screen').forEach(screen => {
+        screen.classList.remove('active');
+    });
+    document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
